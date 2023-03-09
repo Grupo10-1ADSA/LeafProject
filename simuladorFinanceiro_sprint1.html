@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro - Leaf Project</title>
+
+
+</head>
+
+<body>
+    <h1 style="color: green;">SIMULE AQUI!</h1>
+
+    <h3>Quantos M² a plantação possui?</h3> <input id="ipt_qtdM" type="text">
+    <h3>Insira o total de pés de alface colhidos no último mês por M²:</h3> <input id="ipt_qtdPes"
+        type="text"><br><br>
+    <h3>Insira o valor de venda da unidade do pé de alface R$: </h3> <input id="ipt_valorUnid" type="text"><br><br>
+
+    <button style="color: green;" onclick="calcular()">Simule aqui</button>
+<p id="p_exibir"></p>
+
+</body>
+
+</html>
+<script>
+    function calcular() {
+        var qtdMetros = Number(ipt_qtdM.value);
+        var qtdPes = Number(ipt_qtdPes.value);
+        var valorUnid = Number(ipt_valorUnid.value);
+        var totalVenda = (qtdPes * qtdMetros) * valorUnid;
+        var totalSolucao = (totalVenda * 1.50)
+
+        p_exibir.innerHTML = `<h2>Sem a solução da Leaf Project, você teve um faturamento total de <B style= "color: brown;">R$ ${totalVenda}</B> 
+        com as vendas dos pés de alface no último mês. <B><h3 style ="color: green;">Com a solução da Leaf Project, você teria um total de <B style= "color: brown;">R$ ${totalSolucao}</B> com as vendas dos pés de alface! <br><br></B> Além de aumentar em até 47% o número de folhas de cada pé, 65% da aréa das folhas, 57% do peso de cada pé e 17% do diâmetro do pé.<h3></B>`
+    }
+</script>
