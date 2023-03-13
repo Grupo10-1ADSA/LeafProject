@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+</head>
+<body>
+    <h1 style="color: blue">Simulador Financeiro</h1>
+    <h2 style ="color: green">Veja seus ganhos com a Leaf Project!</h2>
+    <!--PERDA EM QUE O USUARIO TEVE EM DINHEIRO--> 
+    Quantas perdas de plantações de alface você teve?<input id="input_perdas">
+    <br>
+    Quantas plantações de alface você tem?<input id="input_qtd_alface">
+    <br>
+    Qual o preço do pé de alface?<input id="input_preco">
+    <br>
+    <!--GANHO QUE TERIA EM DINHEIRO--> 
+    <button onclick="calcula_lucro()">Analise de lucros</button>
+    <div id="div_calculaL"></div>
+</body>
+</html>
+<script>
+    function calcula_lucro(){
+        var perdas = Number (input_perdas.value)
+        var qtdAlfaces = Number(input_qtd_alface.value)
+        var preco_alface = Number (input_preco.value)
+        //PERDAS EM REAIS R$
+        var calculo_perdas = (perdas * preco_alface)
+        var calculo_ganho_Normal = (qtdAlfaces * preco_alface) 
+        //COM A NOSSA SOLUÇÃO
+        var solucaoLP = (calculo_ganho_Normal * 1.33)
+
+        div_calculaL.innerHTML= `<br>Sem a implementação do Leaf Project você <b style ="color: red">PERDE</b> R$${calculo_perdas} :(
+        <br>
+        <br>
+        Sem prejuizos de perda você <b style ="color:gray">ganha</b> R$${calculo_ganho_Normal} :/
+        <br>
+        <br>
+        Com a nossa solução você pode <b style ="color: green">GANHAR</b> R$${solucaoLP} :D <b> podendo lucrar até 33%</b>`
+    }
+</script>
